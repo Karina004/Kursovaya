@@ -1,0 +1,255 @@
+﻿<Page x:Class="Kursovaya.View.AdministratorPage.AdministratorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:Kursovaya.View.AdministratorPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdministratorPage">
+
+    <Grid Background="BurlyWood">
+        <materialDesign:Card>
+            
+            <TabControl
+    materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
+    SnapsToDevicePixels="True"
+    Style="{StaticResource MaterialDesignNavigationRailTabControl}"
+    TabStripPlacement="Left">
+                <materialDesign:NavigationRailAssist.FloatingContent>
+                    <Button
+        Margin="8"
+        Content="{materialDesign:PackIcon Kind=Image}"
+        Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Visibility="Hidden" />
+                </materialDesign:NavigationRailAssist.FloatingContent>
+                
+
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel
+                            
+          Width="auto"
+          Height="auto">
+                            <materialDesign:PackIcon
+            Width="24"
+            Height="24"
+            HorizontalAlignment="Center"
+            Kind="Image" />
+                            <TextBlock
+            HorizontalAlignment="Center"
+            Text="Picture" 
+                                />
+                            
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel>
+                        <Button x:Name="BtnNewPicture"
+                            Width="157"
+                                Margin="20 20 550 0" 
+                                Background="#FFC5C5C5" 
+                                BorderBrush="#FFACACAC"
+                                Content="Добавить картину" 
+                                Foreground="#FF303030"
+                                Click="BtnNewPicture_Click">
+                            
+                        </Button>
+                        <DataGrid x:Name="InfoPic"
+                  AutoGenerateColumns="False"
+                                  IsReadOnly="True"
+                                  Height="396"
+                                  Width="728">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                    Width="auto"
+                    Header="НАЗВАНИЕ"
+                    Binding="{Binding Name}"
+                    FontSize="15"/>
+                                <DataGridTextColumn
+                    Width="auto"
+                    Header="ГОД ИЗДАНИЯ"
+                    Binding="{Binding YearOfPublication}"
+                    FontSize="15"/>
+                                <DataGridTextColumn
+                    Width="auto"
+                    Header="АВТОР"
+                    Binding="{Binding ArtistName}"
+                    FontSize="15"/>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="BtnDeletePicture"
+                                                Background="Transparent"
+                                                    Foreground="Gray"
+                                                    Click="BtnDeletePicture_Click"
+                                    Style="{StaticResource MaterialDesignFlatLightButton}">
+                                                <StackPanel>
+                                                    <materialDesign:PackIcon Kind="Delete"/>
+                                                </StackPanel>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem>
+                
+                
+                
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel
+                            
+                            
+          Width="auto"
+          Height="auto">
+                            <materialDesign:PackIcon
+            Width="24"
+            Height="24"
+            HorizontalAlignment="Center"
+            Kind="AccountTieWoman" />
+                            <TextBlock
+            HorizontalAlignment="Center"
+            Text="Client" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel
+                        
+        Margin="0,16,0,16" Width="727">
+                        <Button x:Name="BtnNewClient"
+                            Width="157"
+                                Margin="20 20 550 0" 
+                                Background="#FFC5C5C5" 
+                                BorderBrush="#FFACACAC"
+                                Content="Добавить клиента" 
+                                Foreground="#FF303030"
+                                Click="BtnNewClient_Click">
+
+                        </Button>
+                        <DataGrid x:Name="InfoClient"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            GridLinesVisibility="Horizontal"
+            ColumnHeaderHeight="50"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            Effect="{StaticResource MaterialDesignElevationShadow3}" 
+            
+                                  Margin="0 20"
+                                  Height="363"
+                                  Width="726">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                    Width="auto"
+                    Header="ФИО"
+                    Binding="{Binding FIO}"
+                    FontSize="15"/>
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button x:Name="BtnDeleteClient"
+                                                Background="Transparent"
+                                                    Foreground="Gray"
+                                                    Click="BtnDeleteClient_Click"
+                                    Style="{StaticResource MaterialDesignFlatLightButton}">
+                                                <StackPanel>
+                                                    <materialDesign:PackIcon Kind="Delete"/>
+                                                </StackPanel>
+
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                
+                                
+
+                            </DataGrid.Columns>
+                            
+
+                        </DataGrid>
+                    </StackPanel>
+                </TabItem>
+                
+                
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel
+          Width="auto"
+          Height="auto">
+                            <materialDesign:PackIcon
+            Width="24"
+            Height="24"
+            HorizontalAlignment="Center"
+            Kind="PaletteOutline" />
+                            <TextBlock
+            HorizontalAlignment="Center"
+            Text="Artist" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel
+        Margin="0,16,0,0" Width="727">
+                        <DataGrid x:Name="InfoArtist"
+            AutoGenerateColumns="False"
+            IsReadOnly="True"
+            GridLinesVisibility="Horizontal"
+            ColumnHeaderHeight="50"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            Effect="{StaticResource MaterialDesignElevationShadow3}" 
+            
+                                  Margin="0 70"
+                                  Height="363"
+                                  Width="723">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn
+                    Width="auto"
+                    Header="ФИО"
+                    Binding="{Binding ArtistName}"
+                    FontSize="15"/>
+                                <DataGridTextColumn
+                    Width="auto"
+                    Header="ДАТА РОЖДЕНИЯ"
+                    Binding="{Binding DateOfBirth}"
+                    FontSize="15"/>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                        <TextBlock
+          Margin="0,0,0,8"
+          Style="{StaticResource MaterialDesignHeadline5TextBlock}" />
+
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+
+        <materialDesign:PackIcon Kind="ArrowLeft" 
+                                 Height="30"
+                                 Width="30"
+                                 HorizontalAlignment="Left"
+                                 VerticalAlignment="Top"
+                                 Margin="10 10 0 0"
+                                 MouseDown="PackIcon_MouseDown"
+                                 Cursor="Hand"/>
+        
+
+
+        <materialDesign:PackIcon Kind="CloseThick"
+                Name="BtnClose"
+                    Height="30"
+                    Width="30"
+                    HorizontalAlignment="Right"
+                    Margin="0 13 14 0"
+                    MouseDown="BtnClose_MouseDown"
+                                     Cursor="Hand"/>
+
+
+        <Frame x:Name="FrameAdmin">
+            
+        </Frame>
+
+    </Grid>
+</Page>
